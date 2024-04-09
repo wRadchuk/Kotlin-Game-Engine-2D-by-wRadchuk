@@ -11,13 +11,12 @@
 - [Joystick](game_engine/src/main/java/com/wradchuk/game_engine/core/Joystick.kt) - обрабатывает события MotionEvent для перемещения камеры в пространстве
 - [GameViewport](game_engine/src/main/java/com/wradchuk/game_engine/core/GameViewport.kt) - игровое отображение, управление камерой и установка её по центру игровой сцены
 - [GameScreen](game_engine/src/main/java/com/wradchuk/game_engine/components/GameScreen.kt) - представляет экран игры, на котором уже можно создавать игру используя движок
-- 
 
 ## Установка
 
 1. Клонируйте репозиторий на локальную машину.
 2. Откройте проект в Android Studio Jellyfish или в верисии новее.
-3. TODO.
+3. Ознакомьтесь с кодом примера игры в [MainActivity](app/src/main/java/com/wradchuk/kotlingameengine2d/MainActivity.kt).
 
 ## Использование
 
