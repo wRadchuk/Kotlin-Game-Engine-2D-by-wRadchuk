@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Kotlin Game Engine 2D"
 include(":app")
- 
+include(":game_engine")
