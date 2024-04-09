@@ -6,11 +6,11 @@
 
 ## Основные возможности
 
-- [GameLevel](components/GameLevel.kt) - создание ортогональныx 2D уровней на основе карты плиток
-- [Camera](objects/Camera.kt) - камера для перемещения по игровому пространству
-- [Joystick](core/Joystick.kt) - обрабатывает события MotionEvent для перемещения камеры в пространстве
-- [GameViewport](core/GameViewport.kt) - игровое отображение, управление камерой и установка её по центру игровой сцены
-- [GameScreen](components/GameScreen.kt) - представляет экран игры, на котором уже можно создавать игру используя движок
+- [GameLevel](game_engine/src/main/java/com/wradchuk/game_engine/components/GameLevel.kt) - создание ортогональныx 2D уровней на основе карты плиток
+- [Camera](game_engine/src/main/java/com/wradchuk/game_engine/objects/Camera.kt) - камера для перемещения по игровому пространству
+- [Joystick](game_engine/src/main/java/com/wradchuk/game_engine/core/Joystick.kt) - обрабатывает события MotionEvent для перемещения камеры в пространстве
+- [GameViewport](game_engine/src/main/java/com/wradchuk/game_engine/core/GameViewport.kt) - игровое отображение, управление камерой и установка её по центру игровой сцены
+- [GameScreen](game_engine/src/main/java/com/wradchuk/game_engine/components/GameScreen.kt) - представляет экран игры, на котором уже можно создавать игру используя движок
 - 
 
 ## Установка
