@@ -1,12 +1,12 @@
 package com.wradchuk.game_engine.utils
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Paint
-import androidx.core.content.ContextCompat
-import com.wradchuk.game_engine.R
+import android.util.TypedValue
 import com.wradchuk.game_engine.common.Vector2
 import com.wradchuk.game_engine.map.MapData
 import org.json.JSONObject
@@ -26,6 +26,9 @@ fun Context.getDisplayWidthInPixels(): Int = this.resources.displayMetrics.width
  * @return Высота экрана в пикселях.
  */
 fun Context.getDisplayHeightInPixels(): Int = this.resources.displayMetrics.heightPixels
+
+val Int.dp: Int
+    get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), Resources.getSystem().displayMetrics).toInt()
 
 /**
  * Получает битмап из ресурсов.
@@ -52,7 +55,7 @@ fun Canvas.drawText(
     color: Int,
     textSizeF: Float = 30f,
     message: String?,
-    position: Vector2<Float>,
+    position: Vector2<Int>,
     visible: Boolean = true,
 ) {
     if(visible) {
@@ -60,7 +63,7 @@ fun Canvas.drawText(
             this.color = color
             this.textSize = textSizeF
         }
-        this.drawText(message ?: "", position.x, position.y, paint)
+        this.drawText(message ?: "", position.x.toFloat(), position.y.toFloat(), paint)
     }
 }
 
