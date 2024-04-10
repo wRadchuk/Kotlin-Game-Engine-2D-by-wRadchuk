@@ -52,15 +52,15 @@ class TileMap(
 
         val config = Bitmap.Config.ARGB_8888
         renderMap = Bitmap.createBitmap(
-            (newVisibleFrames.right - newVisibleFrames.left) * mapData.tileSize,
-            (newVisibleFrames.bottom - newVisibleFrames.top) * mapData.tileSize,
+            ((newVisibleFrames.right - newVisibleFrames.left) * mapData.tileSize) + mapData.tileSize,
+            ((newVisibleFrames.bottom - newVisibleFrames.top) * mapData.tileSize) + mapData.tileSize,
             config
         )
 
         val mapCanvas = Canvas(renderMap)
 
-        for (iRow in newVisibleFrames.top until newVisibleFrames.bottom + 1) { // iRow - по Y
-            for (iCol in newVisibleFrames.left until newVisibleFrames.right + 1) { // iCol - по X
+        for (iRow in newVisibleFrames.top .. newVisibleFrames.bottom) { // iRow - по Y
+            for (iCol in newVisibleFrames.left .. newVisibleFrames.right) { // iCol - по X
 
                 val tileID = map[iRow][iCol] // достаём с верха и до правого края, затем идём вниз к ряду iRow
 
