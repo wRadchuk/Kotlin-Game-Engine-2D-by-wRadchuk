@@ -2,6 +2,7 @@ package com.wradchuk.kotlingameengine2d
 
 import android.graphics.Canvas
 import android.graphics.Color
+import android.os.Bundle
 import android.view.MotionEvent
 import com.wradchuk.game_engine.core.Joystick
 import com.wradchuk.game_engine.common.Vector2
@@ -9,6 +10,7 @@ import com.wradchuk.game_engine.components.GameLevel
 import com.wradchuk.game_engine.components.GameScreen
 import com.wradchuk.game_engine.core.GameViewport
 import com.wradchuk.game_engine.objects.Camera
+import com.wradchuk.game_engine.utils.dp
 import com.wradchuk.game_engine.utils.drawText
 import com.wradchuk.game_engine.utils.getBitmap
 import com.wradchuk.game_engine.utils.getDisplayHeightInPixels
@@ -28,10 +30,10 @@ class MainActivity : GameScreen() {
     // Джойстик для управления
     private val joystick  by lazy {
         Joystick(
-            outerCircleRadius = 50,
-            outerCircleCenterPosition = Vector2(80, this.getDisplayHeightInPixels() - 120),
-            innerCircleRadius = 30,
-            innerCircleCenterPosition = Vector2(80, this.getDisplayHeightInPixels() - 120),
+            outerCircleRadius = 50.dp,
+            outerCircleCenterPosition = Vector2(60.dp, this.getDisplayHeightInPixels() - 80.dp),
+            innerCircleRadius = 38.dp,
+            innerCircleCenterPosition = Vector2(60.dp, this.getDisplayHeightInPixels() - 80.dp),
 
             )
     }
@@ -39,7 +41,7 @@ class MainActivity : GameScreen() {
     // Камера для отображения игрового мира
     private val camera  by lazy {
         Camera(
-            position = Vector2(1000.0, 1000.0),
+            position = Vector2(0.0, 0.0),
             context = this,
             joystick = joystick,
             mapSize = gameLevel.getMapSize(),
@@ -55,6 +57,10 @@ class MainActivity : GameScreen() {
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun draw(canvas: Canvas) {
         gameLevel.drawLevel(canvas, gameViewport)
 
@@ -67,13 +73,13 @@ class MainActivity : GameScreen() {
             color = Color.MAGENTA,
             textSizeF = 30f,
             message = "FPS: ${getBaseGame().gameLoop?.averageFPS?.toInt()?.toString()}",
-            position = Vector2(10f, 30f)
+            position = Vector2(10.dp, 18.dp)
         )
         canvas.drawText(
             color = Color.MAGENTA,
             textSizeF = 30f,
             message = "x: ${gameViewport.getGameRect().left}, y: ${gameViewport.getGameRect().top}",
-            position = Vector2(250f, 30f)
+            position = Vector2(250.dp, 18.dp)
         )
     }
 
